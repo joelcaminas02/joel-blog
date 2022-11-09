@@ -1,0 +1,26 @@
+<!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="" class="navbar-brand">
+                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Gymnast</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4 bg-secondary">
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <li class="{{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}} lien"><a href="{{ path('index') }}"><i class="fa fa-home sr-icons"></i>Home  </a></li>
+                      <li class="{{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}} lien"><a href="{{ path('about') }}"><i class="fa fa-bookmark sr-icons"></i>About  </a></li>
+                      <li class="{{ (app.request.attributes.get('_route') == 'class')  ? 'active': ''}} lien"><a href="{{ path('class') }}"><i class="fa fa-heart"></i>Class  </a></li>
+                      <li class="{{ (app.request.attributes.get('_route') == 'feature')  ? 'active': ''}} lien"><a href="{{ path('feature') }}"><i class='fas fa-brush'></i>
+                        Feature</a></li>
+                      <li class="{{ (app.request.attributes.get('_route') == 'blog')  ? 'active': ''}} lien"><a href="{{ path('blog') }}"><i class='fas fa-atlas'></i>
+                        Blog</a></li>
+                      <li class="{{ (app.request.attributes.get('_route') == 'contact' or app.request.attributes.get('_route') == '`single`')  ? 'active': ''}} lien"><a href="{{ path('contact') }}"> <i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+                  </ul>
+                 </div>
+            </div>
+        </nav>
+    </div>
