@@ -19,6 +19,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.min.css" rel="stylesheet">
+    {%block head%}{% endblock%}
 </head>
 <body id="page-top">
 <!-- Principal Content Start -->
@@ -26,6 +27,7 @@
 {% block body %}{% endblock %}
 
    <!-- Footer -->
+   <div class='footermio'>
    <footer class="home-page">
      <div class="container text-muted text-center">
        <div class="row">
@@ -45,7 +47,7 @@
        </div>
      </div>
    </footer>
-
+  </div>
    <!-- Jquery -->
    <script type="text/javascript" src="js/jquery.min.js"></script>
    <!-- Bootstrap core Javascript -->
