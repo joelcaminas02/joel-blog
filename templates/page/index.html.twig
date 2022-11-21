@@ -712,7 +712,34 @@
     </div>
     <!-- Blog End -->
 
+    <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+            {% for category in categories %}
+              <td><a class="link {{loop.first ? 'active' : ''}}" href="#category{{category.id}}" data-toggle="tab">{{category.name}}</a></td>
+            {% endfor %}
+            </tr>
+          </thead>
+        </table>
+        <hr>
+      </div>
+      
+      <div class="tab-content">
+        {% for category in categories %}
+          <div id="category{{category.id}}" class="tab-pane {{loop.first ? 'active' : ''}}" >
+            <div class="row popup-gallery">
+            {% for imagen in category.imagens %}
+            {{ include ('partials/imagevageation.html.twig')}}
+            {% endfor %}
+              </div>
+          </div>
+      {% endfor %}
+      
+    
+    <!-- Fots -->
 
+    <!-- end Fots -->
     <!-- Footer Start -->
     <div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
         <div class="row pt-5">
@@ -764,8 +791,7 @@
         </div>
     </div>
     <!-- Footer End -->
-
-
+    
     <!-- Back to Top -->
     <a href="#" class="btn btn-outline-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 

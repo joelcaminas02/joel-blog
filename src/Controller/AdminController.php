@@ -11,14 +11,10 @@ use App\Entity\Category;
 use App\Form\CategoryFormType;
 
 
+
 class AdminController extends AbstractController
 {
-    #[Route('/admin/images', name: 'images')]
-    public function images(): Response
-    {
-        return $this->render('admin/images.html.twig', []);
-    }
-    
+
     #[Route('/admin/categories', name: 'app_categories')]
 public function categories(ManagerRegistry $doctrine, Request $request): Response
 {

@@ -23,7 +23,7 @@
     <link href="css/style.min.css" rel="stylesheet">
     {%block head%}{% endblock%}
 </head>
-<body id="page-top">
+<body id="{%block body_id %}page-top{% endblock %}">
 <!-- Principal Content Start -->
 {{ include ('partials/navigation.html.twig')}}
 {% block body %}{% endblock %}
