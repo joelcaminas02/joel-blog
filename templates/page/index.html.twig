@@ -730,13 +730,23 @@
           <div id="category{{category.id}}" class="tab-pane {{loop.first ? 'active' : ''}}" >
             <div class="row popup-gallery">
             {% for imagen in category.imagens %}
-            {{ include ('partials/imagevageation.html.twig')}}
+            {{ include ('partials/_image.html.twig')}}
             {% endfor %}
               </div>
           </div>
       {% endfor %}
       
-    
+      <div class="tab-content">
+        {% for category in categories %}
+          <div id="category{{category.id}}" class="tab-pane {{loop.first ? 'active' : ''}}" >
+            <div class="row popup-gallery">
+            {% for imagen in category.imagens %}
+            {{ include ('partials/_image.html.twig', {'imagen': imagen})}}
+            {% endfor %}
+              </div>
+          </div>
+      {% endfor %}
+      
     <!-- Fots -->
 
     <!-- end Fots -->
