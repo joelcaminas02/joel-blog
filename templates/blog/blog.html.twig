@@ -125,6 +125,11 @@
             </div>
         </div>
     </div>
+
+    {% for post in posts.results %}
+            {{ include ('partials/post.html.twig', {'post': post}) }}
+    {% endfor %}
+    
     <!-- Blog End -->
 
 
