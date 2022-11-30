@@ -25,7 +25,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
     private $name;
 
 
@@ -136,7 +138,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->posts->contains($post)) {
             $this->posts->add($post);
-            $post->setPostUser($this);
+            $post->setUser($this);
         }
 
         return $this;
@@ -146,8 +148,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->posts->removeElement($post)) {
             // set the owning side to null (unless already changed)
-            if ($post->getPostUser() === $this) {
-                $post->setPostUser(null);
+            if ($post->getUser() === $this) {
+                $post->setUser(null);
             }
         }
 

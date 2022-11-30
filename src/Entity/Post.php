@@ -25,9 +25,10 @@ class Post
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $publishedAt = null;
 
-
-    #[ORM\ManyToOne(inversedBy: 'posts')]
-    private ?User $postUser = null;
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     */
+    private $User;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -35,6 +36,7 @@ class Post
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    
     #[ORM\Column]
     private ?int $numLikes = null;
 
@@ -92,14 +94,14 @@ class Post
         return $this;
     }
 
-    public function getPostUser(): ?User
+    public function getUser(): ?User
     {
-        return $this->postUser;
+        return $this->User;
     }
 
-    public function setPostUser(?User $postUser): self
+    public function setUser(?User $User): self
     {
-        $this->postUser = $postUser;
+        $this->User = $User;
 
         return $this;
     }

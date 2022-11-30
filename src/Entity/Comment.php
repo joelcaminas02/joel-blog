@@ -34,19 +34,7 @@ class Comment
         $this->publishedAt = new \DateTime();
     }
 
-    public function getId(): ?int
-    {/**
-* @return Post[] Returns an array of Post objects
-*/
-public function findAllPaginated(int $page): Paginator
-{
-    $qb =  $this->createQueryBuilder('p')
-        ->orderBy('p.publishedAt', 'DESC')            
-    ;
-	//Devolvemos los resutados de la página
-    return (new Paginator($qb))->paginate($page);
-}
-
+    public function getId(): ?int{
         return $this->id;
     }
 
