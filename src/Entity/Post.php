@@ -25,10 +25,7 @@ class Post
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $publishedAt = null;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
-     */
-    private $User;
+   
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -45,6 +42,9 @@ class Post
 
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class)]
     private Collection $comments;
+
+    #[ORM\ManyToOne(inversedBy: 'posts', targetEntity: User::class)]
+    private $User;
 
     public function __construct()
     {
@@ -95,7 +95,7 @@ class Post
     }
 
     public function getUser(): ?User
-    {
+    { 
         return $this->User;
     }
 

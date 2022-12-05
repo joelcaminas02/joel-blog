@@ -63,6 +63,7 @@ class BlogController extends AbstractController
         
             $post = $form->getData();   
             $post->setSlug($slugger->slug($post->getTitle()));
+           
             $post->setUser($this->getUser());
             $post->setNumLikes(0);
             $post->setNumComments(0);
